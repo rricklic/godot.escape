@@ -1,0 +1,109 @@
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://d4m3vh5yf6teg"]
+
+[ext_resource type="FontFile" uid="uid://dj7w4athhf6cw" path="res://font/pixelart.ttf" id="1_ttwpw"]
+[ext_resource type="Texture2D" uid="uid://bq4fkutcstxmm" path="res://images/x.png" id="2_e0x0v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a25yq"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qy84i"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwyr5"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1mbm"]
+content_margin_left = 0.0
+content_margin_top = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h5pn2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jwol"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4twfs"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtgi4"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n6gi"]
+bg_color = Color(0.61339, 0.61339, 0.61339, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27858"]
+content_margin_left = 1.0
+content_margin_top = 1.0
+content_margin_right = 1.0
+content_margin_bottom = 1.0
+bg_color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5o3i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g46jb"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of5kh"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fr8h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kvmo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkj3l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ux4bi"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cigoj"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ir3t"]
+bg_color = Color(0.827451, 0.827451, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cyxy"]
+content_margin_left = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brvkm"]
+
+[resource]
+default_font = ExtResource("1_ttwpw")
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_a25yq")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_qy84i")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_rwyr5")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_k1mbm")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_h5pn2")
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("1_ttwpw")
+LineEdit/font_sizes/font_size = 8
+LineEdit/fonts/font = ExtResource("1_ttwpw")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_1jwol")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_4twfs")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_rtgi4")
+Panel/styles/panel = SubResource("StyleBoxFlat_3n6gi")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_27858")
+ProgressBar/font_sizes/font_size = 8
+ProgressBar/fonts/font = ExtResource("1_ttwpw")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_r5o3i")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_g46jb")
+RichTextLabel/font_sizes/normal_font_size = 8
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_of5kh")
+TextEdit/font_sizes/font_size = 8
+TextEdit/fonts/font = ExtResource("1_ttwpw")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_0fr8h")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_5kvmo")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_pkj3l")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ux4bi")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_cigoj")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_6ir3t")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_8cyxy")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_brvkm")
+Window/constants/close_h_offset = 6
+Window/font_sizes/title_font_size = 8
+Window/fonts/title_font = ExtResource("1_ttwpw")
+Window/icons/close = ExtResource("2_e0x0v")
+Window/icons/close_pressed = ExtResource("2_e0x0v")

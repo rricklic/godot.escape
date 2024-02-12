@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://duwrciw673aa2"]
+
+[ext_resource type="Script" path="res://scenes/game/2.3_platformer/level.gd" id="1_6fdx3"]
+[ext_resource type="PackedScene" uid="uid://daxu4wk7yxnmr" path="res://scenes/game/2.3_platformer/key.tscn" id="1_i1t4m"]
+[ext_resource type="PackedScene" uid="uid://blsbucbq7xfa1" path="res://scenes/game/2.3_platformer/door.tscn" id="2_i8dwt"]
+[ext_resource type="PackedScene" uid="uid://blkbyi2kjg8b" path="res://scenes/game/2.3_platformer/player.tscn" id="3_g2i04"]
+[ext_resource type="Theme" uid="uid://d4m3vh5yf6teg" path="res://themes/default_theme.tres" id="4_a2brd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcmb7"]
+size = Vector2(320, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdkto"]
+size = Vector2(65, 8)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_6fdx3")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(160, 176)
+shape = SubResource("RectangleShape2D_kcmb7")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_top = 168.0
+offset_right = 320.0
+offset_bottom = 184.0
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(80, 132)
+shape = SubResource("RectangleShape2D_mdkto")
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_left = 48.0
+offset_top = 128.0
+offset_right = 112.0
+offset_bottom = 136.0
+
+[node name="Key" parent="." instance=ExtResource("1_i1t4m")]
+position = Vector2(80, 112)
+
+[node name="Door" parent="." instance=ExtResource("2_i8dwt")]
+position = Vector2(289, 139)
+
+[node name="Player" parent="." instance=ExtResource("3_g2i04")]
+position = Vector2(176, 155)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 294.0
+offset_bottom = 91.0
+theme = ExtResource("4_a2brd")
+theme_override_font_sizes/font_size = 40
+text = "YOU WIN!"

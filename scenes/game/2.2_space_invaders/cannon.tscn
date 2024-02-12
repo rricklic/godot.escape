@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqf5dtjq7rg0v"]
+
+[ext_resource type="Script" path="res://scenes/game/2.2_space_invaders/cannon.gd" id="1_5gc63"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_ka0ps"]
+[ext_resource type="Script" path="res://scenes/hitbox/hurtbox.gd" id="2_eoris"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aaxmm"]
+size = Vector2(26, 26)
+
+[node name="Cannon" type="Node2D"]
+script = ExtResource("1_5gc63")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ka0ps")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_eoris")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_aaxmm")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true

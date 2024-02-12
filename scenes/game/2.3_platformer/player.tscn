@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://blkbyi2kjg8b"]
+
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_2s0q7"]
+[ext_resource type="Script" path="res://scenes/game/2.3_platformer/player.gd" id="1_els3f"]
+[ext_resource type="PackedScene" uid="uid://dwu2w0kyjhyrq" path="res://scenes/interaction/action_area_trigger.tscn" id="3_jifg7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs82y"]
+size = Vector2(26, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5734c"]
+size = Vector2(26, 26)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_els3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2s0q7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_hs82y")
+
+[node name="ActionAreaTrigger" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_jifg7")]
+actor = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionAreaTrigger"]
+shape = SubResource("RectangleShape2D_5734c")

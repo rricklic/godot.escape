@@ -1,0 +1,194 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3n4j2gowsyo7"]
+
+[ext_resource type="Script" path="res://scenes/os/window_os.gd" id="1_6pyjt"]
+[ext_resource type="Theme" uid="uid://d4m3vh5yf6teg" path="res://themes/default_theme.tres" id="1_d0j83"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="3_y6ksh"]
+[ext_resource type="Texture2D" uid="uid://bq4fkutcstxmm" path="res://images/x.png" id="4_n0jym"]
+[ext_resource type="Texture2D" uid="uid://dx5808ioq0x3r" path="res://images/window_9patch.png" id="5_kvfjs"]
+[ext_resource type="Texture2D" uid="uid://bv231ecfaqjha" path="res://images/x_pressed.png" id="6_h58cs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mulu6"]
+bg_color = Color(0, 0, 1, 1)
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gtgj5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxt1w"]
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="WindowOS" type="Control"]
+layout_mode = 3
+anchor_left = 0.2
+anchor_top = 0.177778
+anchor_right = 0.79375
+anchor_bottom = 1.08889
+offset_left = -64.0
+offset_top = -32.0
+offset_right = -112.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_d0j83")
+script = ExtResource("1_6pyjt")
+metadata/_edit_use_anchors_ = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_kvfjs")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 2
+
+[node name="Layout" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="PanelContainer" parent="NinePatchRect/MarginContainer/Layout"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme = ExtResource("1_d0j83")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mulu6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/Layout/TopBar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="WindowButton" type="TextureButton" parent="NinePatchRect/MarginContainer/Layout/TopBar/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+texture_normal = ExtResource("3_y6ksh")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="NinePatchRect/MarginContainer/Layout/TopBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gtgj5")
+
+[node name="CloseButton" type="TextureButton" parent="NinePatchRect/MarginContainer/Layout/TopBar/HBoxContainer"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+texture_normal = ExtResource("4_n0jym")
+texture_pressed = ExtResource("6_h58cs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/Layout/TopBar"]
+layout_mode = 2
+text = "Window Title"
+horizontal_alignment = 1
+
+[node name="Content" type="Control" parent="NinePatchRect/MarginContainer/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NinePatchRect/MarginContainer/Layout/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/Layout/Content/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect/MarginContainer/Layout/Content/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_d0j83")
+columns = 5
+
+[node name="StatusBar" type="PanelContainer" parent="NinePatchRect/MarginContainer/Layout"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+theme = ExtResource("1_d0j83")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sxt1w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/Layout/StatusBar"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/Layout/StatusBar/HBoxContainer"]
+layout_mode = 2
+text = "version 0.0.1"
+
+[node name="Handles" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Right" type="Control" parent="NinePatchRect/Handles"]
+custom_minimum_size = Vector2(2, 5)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 10
+
+[node name="Bottom" type="Control" parent="NinePatchRect/Handles"]
+custom_minimum_size = Vector2(5, 2)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 9
+
+[node name="Corner" type="Control" parent="NinePatchRect/Handles"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 12

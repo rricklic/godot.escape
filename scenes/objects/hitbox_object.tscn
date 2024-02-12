@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bui8cj0qm2f12"]
+
+[ext_resource type="Script" path="res://scenes/objects/hitbox_object.gd" id="1_5ydgk"]
+[ext_resource type="Script" path="res://scenes/hitbox/hitbox.gd" id="2_a4uj1"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="3_nfckx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd5ir"]
+size = Vector2(34, 34)
+
+[node name="HitboxObject" type="Node2D"]
+position = Vector2(104, 72)
+script = ExtResource("1_5ydgk")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_a4uj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_gd5ir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-3.57628e-06, 0)
+scale = Vector2(1.23077, 1.23077)
+texture = ExtResource("3_nfckx")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c13nmbo2ostjo"]
+
+[ext_resource type="Script" path="res://scenes/objects/dialogue_tree_object.gd" id="1_4q56u"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="2_m4i18"]
+[ext_resource type="Script" path="res://scenes/interaction/action_area.gd" id="3_fhph7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64ujt"]
+size = Vector2(48, 48)
+
+[node name="DialogueTreeObject" type="Node2D"]
+script = ExtResource("1_4q56u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.603922, 0.152941, 1, 1)
+texture = ExtResource("2_m4i18")
+
+[node name="ActionArea" type="Area2D" parent="."]
+script = ExtResource("3_fhph7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+shape = SubResource("RectangleShape2D_64ujt")

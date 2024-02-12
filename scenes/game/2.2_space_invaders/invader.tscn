@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dekgx3hk0nc41"]
+
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_1t54q"]
+[ext_resource type="Script" path="res://scenes/game/2.2_space_invaders/invader.gd" id="1_fnbpc"]
+[ext_resource type="Script" path="res://scenes/hitbox/hurtbox.gd" id="2_1cfah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0aoxu"]
+size = Vector2(13, 13)
+
+[node name="Invader" type="Node2D"]
+script = ExtResource("1_fnbpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1t54q")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("2_1cfah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_0aoxu")

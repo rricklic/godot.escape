@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cilxxyswxrai0"]
+
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_bxg8d"]
+[ext_resource type="Script" path="res://scenes/game/2.2_space_invaders/bullet.gd" id="1_fabc7"]
+[ext_resource type="Script" path="res://scenes/hitbox/hitbox.gd" id="2_5cfnu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tj4h"]
+size = Vector2(5, 10)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_fabc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-2.38419e-07, 2.84217e-14)
+scale = Vector2(0.211538, 0.423077)
+texture = ExtResource("1_bxg8d")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("2_5cfnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_8tj4h")

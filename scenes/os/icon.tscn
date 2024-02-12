@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://clntxffxe71gi"]
+
+[ext_resource type="PackedScene" uid="uid://ceguc3fwjpmd5" path="res://scenes/os/drag_component.tscn" id="1_cb3jn"]
+[ext_resource type="Script" path="res://scenes/os/icon.gd" id="1_dbne4"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_rxbih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53pra"]
+size = Vector2(26, 26)
+
+[node name="Icon" type="Area2D"]
+script = ExtResource("1_dbne4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rxbih")
+
+[node name="DragComponent" parent="." instance=ExtResource("1_cb3jn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_53pra")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 13.0
+offset_right = 26.0
+offset_bottom = 24.0
+text = "Icon Name"

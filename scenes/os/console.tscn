@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8uqylq7ko670"]
+
+[ext_resource type="Script" path="res://scenes/os/console.gd" id="1_jdve6"]
+[ext_resource type="Theme" uid="uid://d4m3vh5yf6teg" path="res://themes/default_theme.tres" id="1_ole8m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8uicw"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm512"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Console" type="PanelContainer"]
+custom_minimum_size = Vector2(320, 180)
+offset_right = 320.0
+offset_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_8uicw")
+script = ExtResource("1_jdve6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm512")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_ole8m")
+bbcode_enabled = true
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Prompt" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "$>"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ole8m")
+caret_blink = true

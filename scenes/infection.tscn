@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7j3foi82sbgg"]
+
+[ext_resource type="Script" path="res://scenes/infection.gd" id="1_dgepa"]
+[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="2_gsiot"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="3_0oqn2"]
+
+[sub_resource type="Curve" id="Curve_bny38"]
+_data = [Vector2(0.00809716, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o27ro"]
+curve = SubResource("Curve_bny38")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5u02w"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(12, 1, 1)
+gravity = Vector3(0, -50, 0)
+color = Color(1, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_o27ro")
+turbulence_enabled = true
+turbulence_noise_strength = 8.0
+turbulence_noise_scale = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvoyy"]
+shader = ExtResource("2_gsiot")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62jfq"]
+shader = ExtResource("2_gsiot")
+shader_parameter/flash_color = Color(1, 0, 0, 1)
+shader_parameter/flash_amount = 0.5
+
+[node name="Infection" type="Node2D"]
+position = Vector2(29, 19)
+script = ExtResource("1_dgepa")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(66, -7)
+amount = 96
+process_material = SubResource("ParticleProcessMaterial_5u02w")
+lifetime = 1.5
+
+[node name="Label" type="Label" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_hvoyy")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "01001011"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_62jfq")
+position = Vector2(66, 6)
+texture = ExtResource("3_0oqn2")

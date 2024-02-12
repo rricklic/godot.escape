@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl8bgk2eu38o3"]
+
+[ext_resource type="Script" path="res://scenes/managers/shader_manager/shader_manager.gd" id="1_ligxf"]
+
+[node name="ShaderManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_ligxf")

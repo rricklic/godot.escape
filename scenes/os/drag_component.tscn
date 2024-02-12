@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceguc3fwjpmd5"]
+
+[ext_resource type="Script" path="res://scenes/os/drag_component.gd" id="1_vs516"]
+
+[node name="DragComponent" type="Node"]
+script = ExtResource("1_vs516")

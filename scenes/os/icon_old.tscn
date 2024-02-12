@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8600whxf1ie5"]
+
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_1jfsk"]
+[ext_resource type="Script" path="res://scenes/os/icon_old.gd" id="2_d2qvm"]
+
+[node name="Icon" type="Sprite2D"]
+texture = ExtResource("1_1jfsk")
+script = ExtResource("2_d2qvm")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0

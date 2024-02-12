@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://daxu4wk7yxnmr"]
+
+[ext_resource type="Script" path="res://scenes/game/2.3_platformer/key.gd" id="1_jus0v"]
+[ext_resource type="Texture2D" uid="uid://c8d0ngpg5vmk" path="res://images/key.png" id="2_n5p43"]
+[ext_resource type="PackedScene" uid="uid://cx2fv185ybpui" path="res://scenes/interaction/action_area.tscn" id="3_15x5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gs03"]
+size = Vector2(16, 22)
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_jus0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n5p43")
+
+[node name="ActionArea" parent="." instance=ExtResource("3_15x5y")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+shape = SubResource("RectangleShape2D_5gs03")
+
+[editable path="ActionArea"]

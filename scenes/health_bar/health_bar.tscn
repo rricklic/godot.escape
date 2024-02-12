@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://co1skdrhwqoug"]
+
+[ext_resource type="Script" path="res://scenes/health_bar/health_bar.gd" id="1_67qw8"]
+[ext_resource type="Theme" uid="uid://d4m3vh5yf6teg" path="res://themes/default_theme.tres" id="1_xhweb"]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_67qw8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 24.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Enemy "
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme = ExtResource("1_xhweb")
+step = 1.0
+value = 50.0
+show_percentage = false

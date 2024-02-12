@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://csk0h8eo5cg5m"]
+
+[ext_resource type="Shader" path="res://shaders/aboration.gdshader" id="1_0ue0f"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="1_3vcu0"]
+[ext_resource type="Texture2D" uid="uid://cqpgubhj3aeaa" path="res://images/space.jpg" id="1_pfb6i"]
+[ext_resource type="Texture2D" uid="uid://bidyjqqsnxyq" path="res://images/icon_computer.png" id="3_vj38e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7egi"]
+shader = ExtResource("1_0ue0f")
+shader_parameter/offset = -4.386
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oq1ey"]
+shader = ExtResource("1_0ue0f")
+shader_parameter/offset = 5.0
+
+[node name="Test" type="Node2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("1_pfb6i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_u7egi")
+position = Vector2(72, 56)
+texture = ExtResource("3_vj38e")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_oq1ey")
+position = Vector2(192, 80)
+scale = Vector2(3.26923, 2.96154)
+texture = ExtResource("1_3vcu0")

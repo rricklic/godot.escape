@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgc75kquxd4su"]
+
+[ext_resource type="Script" path="res://scenes/game/2.3_clicker/enemy.gd" id="1_jgmoj"]
+[ext_resource type="PackedScene" uid="uid://co1skdrhwqoug" path="res://scenes/health_bar/health_bar.tscn" id="3_ce13d"]
+[ext_resource type="Texture2D" uid="uid://bidyjqqsnxyq" path="res://images/icon_computer.png" id="3_iubtv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dli4e"]
+size = Vector2(16, 16)
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_jgmoj")
+
+[node name="EnemyHealth" parent="." instance=ExtResource("3_ce13d")]
+offset_left = 40.0
+offset_right = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_iubtv")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_dli4e")
+
+[node name="Timer" type="Timer" parent="."]

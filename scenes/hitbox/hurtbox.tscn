@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3msxd0bbtvm4"]
+
+[ext_resource type="Script" path="res://scenes/hitbox/hurtbox.gd" id="1_14fyt"]
+
+[node name="Hurtbox" type="Area2D"]
+modulate = Color(1, 0.419608, 0, 1)
+script = ExtResource("1_14fyt")

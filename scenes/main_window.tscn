@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://5l14ht5mwvl0"]
+
+[ext_resource type="Script" path="res://scenes/main_window.gd" id="1_w4n6y"]
+
+[node name="MainWindow" type="Node2D"]
+position = Vector2(104, 72)
+script = ExtResource("1_w4n6y")
+
+[node name="Window" type="Window" parent="."]
+initial_position = 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vcyv8mtmg3uh"]
+
+[ext_resource type="Script" path="res://scenes/dialogue/dialogue_tree.gd" id="1_ykhnm"]
+
+[node name="DialogueTree" type="Node2D"]
+script = ExtResource("1_ykhnm")
