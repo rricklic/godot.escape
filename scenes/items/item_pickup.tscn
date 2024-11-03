@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://by2sp1yr23t7a"]
+
+[ext_resource type="Script" path="res://scenes/items/item_pickup.gd" id="1_k1etx"]
+[ext_resource type="Script" path="res://scenes/interaction/action_area.gd" id="3_11j41"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87hp6"]
+
+[node name="ItemPickup" type="Node2D"]
+script = ExtResource("1_k1etx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ActionArea" type="Area2D" parent="."]
+script = ExtResource("3_11j41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+shape = SubResource("RectangleShape2D_87hp6")

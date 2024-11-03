@@ -38,6 +38,9 @@ func play_music(audio_res: String):
 
 func stop_music():
 	music_player.stop()
+	
+func pause_music():
+	music_player.set_stream_paused(!music_player.get_stream_paused())
 
 func clear_audio_cache() -> void:
 	audio_cache.clear()

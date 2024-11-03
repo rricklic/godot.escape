@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ghn6eohua06s"]
+
+[ext_resource type="Texture2D" uid="uid://cqpgubhj3aeaa" path="res://images/space.jpg" id="1_mitgf"]
+[ext_resource type="PackedScene" uid="uid://cqf5dtjq7rg0v" path="res://game/2.2_space_invaders/cannon.tscn" id="2_i4rwk"]
+[ext_resource type="PackedScene" uid="uid://3ckqxyfa6t1q" path="res://game/2.2_space_invaders/invaders.tscn" id="3_ob07h"]
+[ext_resource type="Script" path="res://game/2.2_space_invaders/invaders.gd" id="4_a42xw"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 88)
+scale = Vector2(0.297082, 0.27157)
+texture = ExtResource("1_mitgf")
+
+[node name="Cannon" parent="." instance=ExtResource("2_i4rwk")]
+position = Vector2(152, 160)
+
+[node name="Invaders" parent="." instance=ExtResource("3_ob07h")]
+script = ExtResource("4_a42xw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

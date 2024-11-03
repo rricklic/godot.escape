@@ -5,6 +5,9 @@ class_name Infection extends Node2D
 
 var total_time: float = 0.0
 
+func _ready() -> void:
+	pass
+
 func _process(delta: float) -> void:
 	total_time += delta
 	var sin_result: float = sin(total_time * 4)

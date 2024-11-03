@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://lg1pqiicef6"]
+
+[ext_resource type="PackedScene" uid="uid://cr7qh035bqav3" path="res://scenes/player.tscn" id="1_ng4js"]
+[ext_resource type="PackedScene" uid="uid://by2sp1yr23t7a" path="res://scenes/items/item_pickup.tscn" id="2_dxgoj"]
+[ext_resource type="Resource" uid="uid://c8ta4tnh4g78n" path="res://scenes/items/resources/items/gold.tres" id="3_d2t7w"]
+[ext_resource type="Resource" uid="uid://drb8dyca8jeu3" path="res://scenes/items/resources/items/heart.tres" id="3_sch1h"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ng4js")]
+position = Vector2(128, 80)
+
+[node name="Heart" parent="." instance=ExtResource("2_dxgoj")]
+position = Vector2(216, 120)
+item_data = ExtResource("3_sch1h")
+
+[node name="Gold" parent="." instance=ExtResource("2_dxgoj")]
+position = Vector2(152, 152)
+item_data = ExtResource("3_d2t7w")

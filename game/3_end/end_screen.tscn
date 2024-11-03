@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://c87wjy7y8q8uy"]
+
+[ext_resource type="Script" path="res://game/3_end/end_screen.gd" id="1_58wlt"]
+
+[node name="EndScreen" type="Node2D"]
+script = ExtResource("1_58wlt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 144.0
+offset_top = 88.0
+offset_right = 184.0
+offset_bottom = 95.0
+text = "End"

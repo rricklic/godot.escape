@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData_R" load_steps=7 format=3 uid="uid://drb8dyca8jeu3"]
+
+[ext_resource type="Script" path="res://scenes/items/resources/item_on_entered/action_pickup_item.gd" id="1_4tmop"]
+[ext_resource type="Script" path="res://scenes/items/resources/item_action/item_action_heal_func.gd" id="1_5elbs"]
+[ext_resource type="Script" path="res://scenes/items/resources/items/item_data_r.gd" id="2_libw2"]
+[ext_resource type="Texture2D" uid="uid://c2j0qrul6ibph" path="res://images/heart.png" id="3_jrccj"]
+
+[sub_resource type="Resource" id="Resource_32l7x"]
+script = ExtResource("1_5elbs")
+heal_amount = 1
+do_not_use = ""
+
+[sub_resource type="Resource" id="Resource_dgavn"]
+script = ExtResource("1_4tmop")
+count = 0
+do_not_use = ""
+
+[resource]
+script = ExtResource("2_libw2")
+name = "Heart"
+description = "Heal self"
+texture = ExtResource("3_jrccj")
+on_entered_funcs = Array[Resource("res://scenes/items/resources/item_on_entered/item_on_entered_func_r.gd")]([SubResource("Resource_dgavn")])
+action_funcs = Array[Resource("res://scenes/items/resources/item_action/item_action_func_r.gd")]([SubResource("Resource_32l7x")])

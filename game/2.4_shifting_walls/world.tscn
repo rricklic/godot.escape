@@ -1,0 +1,145 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmb434femigw3"]
+
+[ext_resource type="PackedScene" uid="uid://dxpf1huqn41jk" path="res://game/2.4_shifting_walls/player.tscn" id="1_v1sn2"]
+[ext_resource type="Texture2D" uid="uid://cqpgubhj3aeaa" path="res://images/space.jpg" id="1_vbf0r"]
+[ext_resource type="Script" path="res://game/2.4_shifting_walls/world.gd" id="1_vvekd"]
+[ext_resource type="PackedScene" uid="uid://b2gsmqqpmjflp" path="res://scenes/camera/camera_ex2d.tscn" id="2_pdwsw"]
+[ext_resource type="PackedScene" uid="uid://df2becisghpwg" path="res://game/2.4_shifting_walls/wall.tscn" id="5_orit0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rxyl"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_netj1"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrp4n"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcn3s"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax1lj"]
+size = Vector2(232, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u71jj"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ljtu"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nlwjy"]
+size = Vector2(168, 57)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_vvekd")
+
+[node name="Background" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(152, 208)
+texture = ExtResource("1_vbf0r")
+
+[node name="Player" parent="." instance=ExtResource("1_v1sn2")]
+position = Vector2(192, 80)
+
+[node name="CameraEx2D" parent="." instance=ExtResource("2_pdwsw")]
+visible = false
+position = Vector2(152, 80)
+
+[node name="Wall" parent="." instance=ExtResource("5_orit0")]
+position = Vector2(80, -8)
+
+[node name="ColorRect" parent="Wall" index="0"]
+offset_right = 232.0
+offset_bottom = 16.0
+
+[node name="CollisionShape2D" parent="Wall" index="1"]
+shape = SubResource("RectangleShape2D_8rxyl")
+
+[node name="VisibleOnScreenNotifier2D" parent="Wall" index="2"]
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Wall2" parent="." instance=ExtResource("5_orit0")]
+position = Vector2(312, -8)
+
+[node name="ColorRect" parent="Wall2" index="0"]
+offset_right = 16.0
+offset_bottom = 560.0
+
+[node name="CollisionShape2D" parent="Wall2" index="1"]
+shape = SubResource("RectangleShape2D_netj1")
+
+[node name="VisibleOnScreenNotifier2D" parent="Wall2" index="2"]
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Wall3" parent="." instance=ExtResource("5_orit0")]
+position = Vector2(64, -8)
+
+[node name="ColorRect" parent="Wall3" index="0"]
+offset_right = 16.0
+offset_bottom = 560.0
+
+[node name="CollisionShape2D" parent="Wall3" index="1"]
+shape = SubResource("RectangleShape2D_jrp4n")
+
+[node name="VisibleOnScreenNotifier2D" parent="Wall3" index="2"]
+position = Vector2(0, 0)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Wall4" parent="." instance=ExtResource("5_orit0")]
+position = Vector2(80, 536)
+shift_position = Vector2(-300, 636)
+shift_size = Vector2(928, 16)
+shift_duration = 6.0
+
+[node name="ColorRect" parent="Wall4" index="0"]
+offset_right = 232.0
+offset_bottom = 16.0
+
+[node name="CollisionShape2D" parent="Wall4" index="1"]
+shape = SubResource("RectangleShape2D_bcn3s")
+
+[node name="VisibleOnScreenNotifier2D" parent="Wall4" index="2"]
+position = Vector2(0, 0)
+scale = Vector2(1e-05, 1e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/TriggerArea" index="0"]
+position = Vector2(116, -440)
+shape = SubResource("RectangleShape2D_ax1lj")
+
+[node name="Wall5" parent="." instance=ExtResource("5_orit0")]
+position = Vector2(496, -8)
+is_shifted = true
+
+[node name="ColorRect" parent="Wall5" index="0"]
+offset_right = 16.0
+offset_bottom = 792.0
+
+[node name="CollisionShape2D" parent="Wall5" index="1"]
+shape = SubResource("RectangleShape2D_u71jj")
+
+[node name="Wall6" parent="." instance=ExtResource("5_orit0")]
+position = Vector2(328, -8)
+
+[node name="ColorRect" parent="Wall6" index="0"]
+offset_right = 168.0
+offset_bottom = 8.0
+
+[node name="CollisionShape2D" parent="Wall6" index="1"]
+shape = SubResource("RectangleShape2D_2ljtu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall6/TriggerArea" index="0"]
+position = Vector2(84, 555.5)
+shape = SubResource("RectangleShape2D_nlwjy")
+
+[editable path="Wall"]
+[editable path="Wall2"]
+[editable path="Wall3"]
+[editable path="Wall4"]
+[editable path="Wall5"]
+[editable path="Wall6"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c7j3foi82sbgg"]
 
 [ext_resource type="Script" path="res://scenes/infection.gd" id="1_dgepa"]
-[ext_resource type="Shader" path="res://shaders/flash.gdshader" id="2_gsiot"]
+[ext_resource type="Shader" path="res://shaders/texture/flash.gdshader" id="2_gsiot"]
 [ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="3_0oqn2"]
 
 [sub_resource type="Curve" id="Curve_bny38"]
@@ -33,11 +33,12 @@ shader_parameter/flash_color = Color(1, 0, 0, 1)
 shader_parameter/flash_amount = 0.5
 
 [node name="Infection" type="Node2D"]
-position = Vector2(29, 19)
+position = Vector2(29, 72)
 script = ExtResource("1_dgepa")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(66, -7)
+rotation = -6.28319
 amount = 96
 process_material = SubResource("ParticleProcessMaterial_5u02w")
 lifetime = 1.5

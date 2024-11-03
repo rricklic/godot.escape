@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://blsbucbq7xfa1"]
+
+[ext_resource type="Texture2D" uid="uid://cbysha6o7jdo0" path="res://images/door.png" id="1_2i45v"]
+[ext_resource type="Script" path="res://game/2.3_platformer/door.gd" id="1_hh33b"]
+[ext_resource type="PackedScene" uid="uid://cx2fv185ybpui" path="res://scenes/interaction/action_area.tscn" id="2_jr4f4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vst1u"]
+size = Vector2(50, 57)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_hh33b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2i45v")
+hframes = 2
+
+[node name="ActionArea" parent="." instance=ExtResource("2_jr4f4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vst1u")

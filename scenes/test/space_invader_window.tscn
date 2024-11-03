@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/test/space_invader_window.gd" id="1_rxc2e"]
 [ext_resource type="PackedScene" uid="uid://d3n4j2gowsyo7" path="res://scenes/os/window_os.tscn" id="1_slyat"]
-[ext_resource type="PackedScene" uid="uid://ghn6eohua06s" path="res://scenes/game/2.2_space_invaders/level.tscn" id="2_asput"]
+[ext_resource type="PackedScene" uid="uid://ghn6eohua06s" path="res://game/2.2_space_invaders/level.tscn" id="2_asput"]
 
 [node name="SpaceInvaderWindow" type="Control"]
 layout_mode = 3

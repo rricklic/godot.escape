@@ -1,5 +1,8 @@
 class_name TransitionManager extends Node
 
+# transform
+# shader
+# animation
 func transition(node: Node2D, transition: Transition) -> void:
 	if (transition == null):
 		return

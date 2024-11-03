@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://df2becisghpwg"]
+
+[ext_resource type="Script" path="res://game/2.4_shifting_walls/wall.gd" id="1_wmow4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbru3"]
+resource_local_to_scene = true
+size = Vector2(10, 9.75)
+
+[node name="Wall" type="StaticBody2D"]
+script = ExtResource("1_wmow4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fbru3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.8, 4)
+scale = Vector2(0.08, 0.4)
+rect = Rect2(-10, -10, 100, 20)
+
+[node name="TriggerArea" type="Area2D" parent="."]

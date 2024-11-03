@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData_R" load_steps=4 format=3 uid="uid://bdfqgu2kathoy"]
+
+[ext_resource type="Script" path="res://scenes/items/resources/item_on_entered/action_use_item.gd" id="1_xoeta"]
+[ext_resource type="Script" path="res://scenes/items/resources/items/item_data_r.gd" id="2_qwxmg"]
+[ext_resource type="Texture2D" uid="uid://bt5nr2r8wy5o8" path="res://images/speed_powerup.png" id="3_hv6ab"]
+
+[resource]
+script = ExtResource("2_qwxmg")
+name = "Invincibility"
+description = "Temporarily invincibility"
+texture = ExtResource("3_hv6ab")
+on_entered_func = ExtResource("1_xoeta")

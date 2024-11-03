@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData_R" load_steps=5 format=3 uid="uid://c8ta4tnh4g78n"]
+
+[ext_resource type="Script" path="res://scenes/items/resources/item_on_entered/action_pickup_item.gd" id="1_xf3en"]
+[ext_resource type="Script" path="res://scenes/items/resources/items/item_data_r.gd" id="2_1evjv"]
+[ext_resource type="Texture2D" uid="uid://d2cbcbn34hfns" path="res://images/gold.png" id="3_kicvw"]
+
+[sub_resource type="Resource" id="Resource_aio16"]
+script = ExtResource("1_xf3en")
+count = 0
+do_not_use = ""
+
+[resource]
+script = ExtResource("2_1evjv")
+name = "Gold"
+description = "Valuable stone used as currency."
+texture = ExtResource("3_kicvw")
+on_entered_funcs = Array[Resource("res://scenes/items/resources/item_on_entered/item_on_entered_func_r.gd")]([SubResource("Resource_aio16")])
+action_funcs = Array[Resource("res://scenes/items/resources/item_action/item_action_func_r.gd")]([])

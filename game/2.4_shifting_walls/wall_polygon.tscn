@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfid37w7dsnxm"]
+
+[ext_resource type="Script" path="res://game/2.4_shifting_walls/wall_polygon.gd" id="1_7c7t5"]
+
+[node name="WallPolygon" type="StaticBody2D"]
+script = ExtResource("1_7c7t5")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

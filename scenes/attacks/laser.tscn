@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://d0b8xsum6wj8h"]
+
+[ext_resource type="Script" path="res://scenes/attacks/laser.gd" id="1_xklmx"]
+
+[sub_resource type="Gradient" id="Gradient_jkmtf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_775d6"]
+gradient = SubResource("Gradient_jkmtf")
+
+[sub_resource type="Curve" id="Curve_jrs7g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.588477, 0.978022), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bo65x"]
+curve = SubResource("Curve_jrs7g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f6gfe"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_bo65x")
+color_ramp = SubResource("GradientTexture1D_775d6")
+
+[sub_resource type="Gradient" id="Gradient_85mq6"]
+offsets = PackedFloat32Array(0.307692, 0.983806)
+colors = PackedColorArray(0.385558, 0.577629, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3pg7y"]
+gradient = SubResource("Gradient_85mq6")
+width = 4
+height = 4
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q3jyj"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+initial_velocity_min = 240.0
+initial_velocity_max = 240.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_bo65x")
+color_ramp = SubResource("GradientTexture1D_775d6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_am8xi"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+
+[node name="Laser" type="RayCast2D"]
+target_position = Vector2(616, 0)
+script = ExtResource("1_xklmx")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 16, 0)
+default_color = Color(0.729412, 0.819608, 1, 1)
+
+[node name="SourceParticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_f6gfe")
+texture = SubResource("GradientTexture2D_3pg7y")
+lifetime = 0.3
+
+[node name="DestinationParticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_q3jyj")
+texture = SubResource("GradientTexture2D_3pg7y")
+lifetime = 0.3
+
+[node name="BeamParticles" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_am8xi")
+lifetime = 0.3
+visibility_rect = Rect2(-1, -1, 200, 200)
+local_coords = true

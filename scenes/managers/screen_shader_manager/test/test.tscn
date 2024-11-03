@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7m26bm383qau"]
+
+[ext_resource type="Script" path="res://scenes/managers/screen_shader_manager/test/test.gd" id="1_wtps3"]
+[ext_resource type="Texture2D" uid="uid://cqpgubhj3aeaa" path="res://images/space.jpg" id="2_y52x5"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="4_n0ktj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q4u7k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iasfn"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_wtps3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_q4u7k")
+position = Vector2(216, 48)
+texture = ExtResource("2_y52x5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_iasfn")
+position = Vector2(136, 104)
+texture = ExtResource("4_n0ktj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(192, 32)
+texture = ExtResource("4_n0ktj")

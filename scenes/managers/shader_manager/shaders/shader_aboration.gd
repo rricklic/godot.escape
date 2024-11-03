@@ -1,6 +1,6 @@
 class_name ShaderAboration extends ShaderBase
 
-const shader: Shader = preload("res://shaders/aboration.gdshader")
+const shader: Shader = preload("res://shaders/texture/aboration.gdshader")
 
 var duration: float = 2.0
 var amount: float = 10.0

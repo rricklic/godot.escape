@@ -8,6 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 script = ExtResource("1_67qw8")
+label_text = "Player 1"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

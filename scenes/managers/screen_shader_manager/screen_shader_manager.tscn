@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2huk3gcryj2n"]
+
+[ext_resource type="Script" path="res://scenes/managers/screen_shader_manager/screen_shader_manager.gd" id="1_hweae"]
+
+[node name="ScreenShaderManager" type="Node"]
+script = ExtResource("1_hweae")

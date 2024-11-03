@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkalrgg3tjvjn"]
+
+[ext_resource type="Script" path="res://game/town/player_sidescroll.gd" id="1_jktym"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="2_8banl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23avc"]
+size = Vector2(16, 48)
+
+[node name="PlayerSidescroll" type="CharacterBody2D"]
+script = ExtResource("1_jktym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 1.90735e-06)
+scale = Vector2(0.5, 1.73077)
+texture = ExtResource("2_8banl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_23avc")
+
+[node name="RayCastUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -48)
+
+[node name="RayCastDown" type="RayCast2D" parent="."]

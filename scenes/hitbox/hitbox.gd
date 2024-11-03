@@ -5,14 +5,14 @@ class_name Hitbox extends Area2D
 # Description: 
 ################################################################################
 
-var action: Callable = func(actor: Node2D):
+var action_func: Callable = func(actor: Node2D):
 	pass
 
-var stop: Callable = func(actor: Node2D):
+var stop_func: Callable = func(actor: Node2D):
 	pass
 
 func perform_action(actor: Node2D) -> void:
-	action.call(actor)
+	action_func.call(actor)
 
 func stop_action(actor: Node2D) -> void:
-	stop.call(actor)
+	stop_func.call(actor)

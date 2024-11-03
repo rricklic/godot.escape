@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://by1hwi2midxbq"]
+
+[ext_resource type="Script" path="res://game/0_splash/splash_screen.gd" id="1_aydne"]
+[ext_resource type="Texture2D" uid="uid://jvtjh5gmcwn" path="res://images/icon.svg" id="2_jjwxf"]
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource("1_aydne")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(160, 96)
+texture = ExtResource("2_jjwxf")

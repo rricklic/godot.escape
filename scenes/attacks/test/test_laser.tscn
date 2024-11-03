@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://br5ifttv0cxek"]
+
+[ext_resource type="PackedScene" uid="uid://d0b8xsum6wj8h" path="res://scenes/attacks/laser.tscn" id="1_6kj7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xj5g"]
+size = Vector2(20, 74)
+
+[node name="TestLaser" type="Node2D"]
+
+[node name="Laser" parent="." instance=ExtResource("1_6kj7s")]
+position = Vector2(16, 104)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(192, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_3xj5g")

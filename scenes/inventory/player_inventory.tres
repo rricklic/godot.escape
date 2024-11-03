@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="InventoryData_R" load_steps=9 format=3 uid="uid://cgrkxx05nrvkv"]
+
+[ext_resource type="Resource" uid="uid://c8ta4tnh4g78n" path="res://scenes/items/resources/items/gold.tres" id="1_a463y"]
+[ext_resource type="Script" path="res://scenes/inventory/inventory_item_data_r.gd" id="2_4xt8g"]
+[ext_resource type="Resource" uid="uid://drb8dyca8jeu3" path="res://scenes/items/resources/items/heart.tres" id="3_cgjdf"]
+[ext_resource type="Script" path="res://scenes/inventory/inventory_data_r.gd" id="3_iunyx"]
+[ext_resource type="Resource" uid="uid://bdfqgu2kathoy" path="res://scenes/items/resources/items/invincibility.tres" id="4_bsckb"]
+
+[sub_resource type="Resource" id="Resource_k4aaf"]
+script = ExtResource("2_4xt8g")
+item_data = ExtResource("1_a463y")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_jq7f0"]
+script = ExtResource("2_4xt8g")
+item_data = ExtResource("3_cgjdf")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_rfsu0"]
+script = ExtResource("2_4xt8g")
+item_data = ExtResource("4_bsckb")
+quantity = 3
+
+[resource]
+script = ExtResource("3_iunyx")
+items = Array[ExtResource("2_4xt8g")]([SubResource("Resource_k4aaf"), SubResource("Resource_jq7f0"), SubResource("Resource_rfsu0")])

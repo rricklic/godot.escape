@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b63v27yerp6nt"]
+
+[ext_resource type="PackedScene" uid="uid://dlwrmn1wyfpw0" path="res://scenes/actions/drop_item.tscn" id="1_sx2ab"]
+
+[node name="TestDropItem" type="Node2D"]
+
+[node name="DropItem" parent="." instance=ExtResource("1_sx2ab")]
+position = Vector2(152, 80)

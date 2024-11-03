@@ -11,8 +11,7 @@ class_name ActionAreaTrigger extends Area2D
 
 @export var actor: Node2D
 
-var last_index: int = 0
-var index: int = 0
+var index: int = -1
 var areas: Array[ActionArea] = []
 
 func _ready() -> void:
@@ -22,46 +21,63 @@ func _ready() -> void:
 func _register(area: Area2D) -> void:
 	if (area is ActionArea):
 		print("register " + str(area.get_instance_id()))
+		area.on_entered(actor)
 		areas.push_back(area)
 		if (areas.size() == 1):
-			_select_area()
+			_set_selected(0, actor)
 	
 func _deregister(area: Area2D) -> void:
 	if (area is ActionArea):
-		area.on_exited(actor)
 		print("deregister " + str(area.get_instance_id()))
-		areas.erase(area)
-		index = 0 if areas.is_empty() else min(index, areas.size() - 1)
-		_select_area()
-	
+		area.on_exited(actor)
+		
+		var delete_index: int = areas.find(area)
+		
+		var new_index: int
+		if (areas.size() == 1):
+			new_index = -1
+		elif (delete_index == index):
+			new_index = _compute_index(-1)
+		else:
+			new_index = index
+			
+		_set_selected(new_index, actor)
+		areas.remove_at(delete_index)
+
+		# Deleting index before selected index, decrement selected index
+		if (delete_index < index):
+			index -= 1
+
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("perform_action")):
 		_perform_action()
+	if (event.is_action_pressed("prev_action") && areas.size() > 1):
+		_set_selected(_compute_index(-1), actor)
+	if (event.is_action_pressed("next_action") && areas.size() > 1):
+		_set_selected(_compute_index(1), actor)
 
-	if (event.is_action_pressed("prev_action")):
-		_next_action(-1)
-	elif (event.is_action_pressed("next_action")):
-		_next_action(1)
+func _is_valid_index(index: int) -> bool:
+	return index >= 0 && index < areas.size()
 
 func _perform_action() -> void:
-	if (areas.is_empty()):
+	if (!_is_valid_index(index)):
 		return
-	
 	areas[index].perform_action(actor, "") # TODO: support different actions
 	
-func _next_action(increment: int) -> void:
+func _compute_index(increment: int) -> int:
 	if (areas.is_empty()):
-		return
+		return -1
 
-	last_index = index
-	index = posmod(index + increment, areas.size())
-	if (index != last_index):
-		_select_area()
+	return posmod(index + increment, areas.size())
 	
-func _select_area() -> void:
-	if (areas.is_empty()):
+func _set_selected(new_index: int, actor: Node) -> void:
+	if (index == new_index):
 		return
+	
+	if (index >= 0):
+		areas[index].on_deselected(actor)
 
-	areas[index].on_entered(actor)
-	if (index != last_index && last_index < areas.size()):
-		areas[last_index].on_exited(actor)
+	index = new_index
+
+	if (index >= 0):
+		areas[index].on_selected(actor)

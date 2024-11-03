@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmyd58ji5crul"]
+
+[ext_resource type="PackedScene" uid="uid://dkalrgg3tjvjn" path="res://game/town/player_sidescroll.tscn" id="1_jrsms"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4u4ib"]
+a = Vector2(704, 0)
+b = Vector2(-256, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lvqlg"]
+b = Vector2(960, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_g82ed"]
+a = Vector2(0, 48)
+b = Vector2(0, 136)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sra0q"]
+b = Vector2(0, 136)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7dn4p"]
+a = Vector2(704, 64)
+b = Vector2(528, 152)
+
+[node name="Town" type="Node2D"]
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(0, 64)
+shape = SubResource("SegmentShape2D_4u4ib")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(-256, 152)
+shape = SubResource("SegmentShape2D_lvqlg")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(704, 16)
+shape = SubResource("SegmentShape2D_g82ed")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-256, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource("SegmentShape2D_sra0q")
+
+[node name="Stairs" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
+shape = SubResource("SegmentShape2D_7dn4p")
+
+[node name="PlayerSidescroll" parent="." instance=ExtResource("1_jrsms")]
+position = Vector2(144, 128)
+floor_snap_length = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="PlayerSidescroll"]

@@ -93,8 +93,14 @@ func _die() -> void:
 	tween.tween_property(self, "rotation_degrees", 720, 0.5)
 	await tween.finished
 
+	# TODO: emit dead, have game/2.0_game/game.gd listen for signal, transition scene
 	SceneManager.signal_transition_file.emit(
-		"res://scenes/game/3_end/end_screen.tscn",
+		"res://game/3_end/end_screen.tscn",
 		TransitionColorFade.new(Color(0, 0, 0, 0), Color(0, 0, 0, 1), 1),
 		TransitionColorFade.new(Color(0, 0, 0, 1), Color(0, 0, 0, 0), 1)
 	)
+
+func add_to_inventory(resource: Resource) -> void:
+	print("Add " + resource.name + " to inventory")
+	# TODO: add inventory
+	resource.action(self, "use"); #TODO: test
